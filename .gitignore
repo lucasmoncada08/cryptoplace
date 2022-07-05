@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -30,3 +31,15 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+.secret
+
+# production
+/build
+
+#Hardhat files
+cache
+artifacts
+
+#vscode
+.vscode
