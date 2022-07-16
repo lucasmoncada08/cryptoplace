@@ -1,9 +1,10 @@
+import Head from 'next/head';
+
 const Home = () => (
-  <div>
-    {/* <h1 className="text-3xl font-bold underline">
-      Hello World
-    </h1> */}
-  </div>
+  <Head>
+    <title>Cryptoplace</title>
+    <meta name="description" content="nft marketplace application using ethereum" />
+  </Head>
 );
 
 export default Home;
