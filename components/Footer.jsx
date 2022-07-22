@@ -17,8 +17,22 @@ const Footer = () => {
             <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">Cryptoplace</p>
           </div>
           <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-base mt-6">Get the latest updates</p>
-          <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 rounded-md" />
-          <input type="email" placeholder="Your Email" />
+          <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 rounded-md">
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="h-full flex-1 w-full dark:bg-nft-black-2 bg-white px-4 rounded-md dark:text-white text-nft-black-1 font-normal text-xs minlg:text-lg outlined-none"
+            />
+            <div className="flex-initial">
+              <Button
+                btnName="Email Us"
+                classStyles="rounded-md"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex-1 flexBetweenStart flex-wrap ml-10 md:ml-0 md:mt-8">
+          {/* <FooterLinks /> */}
         </div>
       </div>
       <div className="flexCenter w-full mt-5 border-t dark:border-nft-black-1 border-nft-gray-1 sm:px-4 px-16">
