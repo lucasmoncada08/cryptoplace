@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
 
 import { Banner, CreatorCard } from '../components';
+import { makeId } from '../utils/makeId';
 import images from '../assets';
 
 const Home = () => {
@@ -38,7 +39,8 @@ const Home = () => {
                     key={`creator-${i}`}
                     rank={i}
                     creatorImage={images[`creator${i}`]}
-                    creatorName="Name"
+                    creatorName={makeId(10)}
+                    creatorEths={10 - i * 0.6}
                   />
                 ))}
               </div>
