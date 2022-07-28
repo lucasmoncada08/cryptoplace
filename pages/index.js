@@ -1,11 +1,15 @@
 import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 import { Banner, CreatorCard } from '../components';
 import { makeId } from '../utils/makeId';
 import images from '../assets';
 
 const Home = () => {
+  const { theme } = useTheme();
+
   const parentRef = useRef(null);
   const scrollRef = useRef(null);
 
@@ -43,6 +47,24 @@ const Home = () => {
                     creatorEths={10 - i * 0.6}
                   />
                 ))}
+                <div onClick={() => {}} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 left-0 cursor-pointer">
+                  <Image
+                    src={images.left}
+                    layout="fill"
+                    objectFit="contain"
+                    alt="left_arrow"
+                    className={theme === 'light' ? 'filter invert' : undefined}
+                  />
+                </div>
+                <div onClick={() => {}} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 right-0 cursor-pointer">
+                  <Image
+                    src={images.right}
+                    layout="fill"
+                    objectFit="contain"
+                    alt="right_arrow"
+                    className={theme === 'light' ? 'filter invert' : undefined}
+                  />
+                </div>
               </div>
             </div>
           </div>
