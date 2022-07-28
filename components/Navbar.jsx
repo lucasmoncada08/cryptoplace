@@ -29,8 +29,8 @@ const MenuItems = ({ isMobile, active, setActive }) => {
           onClick={() => {
             setActive(item);
           }}
-          className={`flex flex-row items-center font-poppins font-semibold text-base 
-          dark:hover:text-white hover:text-nft-dark mx-3 
+          className={`flex flex-row items-center font-poppins font-semibold text-base
+          dark:hover:text-white hover:text-nft-dark mx-3
           ${active === item
             ? 'dark:text-white text-nft-black-1'
             : 'dark:text-nft-gray-3 text-nft-gray-2'}`}
@@ -116,7 +116,7 @@ const Navbar = () => {
               height={20}
               alt="close"
               onClick={() => setIsOpen(false)}
-              className={theme === 'light' && 'filter invert'}
+              className={theme === 'light' ? 'filter invert' : undefined}
             />
           ) : (
             <Image
@@ -126,7 +126,7 @@ const Navbar = () => {
               height={25}
               alt="menu"
               onClick={() => setIsOpen(true)}
-              className={theme === 'light' && 'filter invert'}
+              className={theme === 'light' ? 'filter invert' : undefined}
             />
           )}
 
