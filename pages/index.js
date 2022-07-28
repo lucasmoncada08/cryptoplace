@@ -10,8 +10,42 @@ import images from '../assets';
 const Home = () => {
   const { theme } = useTheme();
 
+  const [hideButtons, setHideButtons] = useState(false);
+
   const parentRef = useRef(null);
   const scrollRef = useRef(null);
+
+  const handleScroll = (direction) => {
+    const { current } = scrollRef;
+
+    const scrollAmount = window.innerWidth > 1800 ? 270 : 210;
+
+    if (direction === 'left') {
+      current.scrollLeft -= scrollAmount;
+    } else {
+      current.scrollLeft += scrollAmount;
+    }
+  };
+
+  const isScrollable = () => {
+    const { current } = scrollRef;
+    const { current: parent } = parentRef;
+
+    if (current?.scrollWidth >= parent?.offsetWidth) {
+      setHideButtons(false);
+    } else {
+      setHideButtons(true);
+    }
+  };
+
+  useEffect(() => {
+    isScrollable();
+    window.addEventListener('resize', isScrollable);
+
+    return () => {
+      window.removeEventListener('resize', isScrollable);
+    };
+  });
 
   return (
     <>
@@ -47,24 +81,29 @@ const Home = () => {
                     creatorEths={10 - i * 0.6}
                   />
                 ))}
-                <div onClick={() => {}} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 left-0 cursor-pointer">
-                  <Image
-                    src={images.left}
-                    layout="fill"
-                    objectFit="contain"
-                    alt="left_arrow"
-                    className={theme === 'light' ? 'filter invert' : undefined}
-                  />
-                </div>
-                <div onClick={() => {}} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 right-0 cursor-pointer">
-                  <Image
-                    src={images.right}
-                    layout="fill"
-                    objectFit="contain"
-                    alt="right_arrow"
-                    className={theme === 'light' ? 'filter invert' : undefined}
-                  />
-                </div>
+                { !hideButtons
+                && (
+                <>
+                  <div onClick={() => handleScroll('left')} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 left-0 cursor-pointer">
+                    <Image
+                      src={images.left}
+                      layout="fill"
+                      objectFit="contain"
+                      alt="left_arrow"
+                      className={theme === 'light' ? 'filter invert' : undefined}
+                    />
+                  </div>
+                  <div onClick={() => handleScroll('right')} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 right-0 cursor-pointer">
+                    <Image
+                      src={images.right}
+                      layout="fill"
+                      objectFit="contain"
+                      alt="right_arrow"
+                      className={theme === 'light' ? 'filter invert' : undefined}
+                    />
+                  </div>
+                </>
+                )}
               </div>
             </div>
           </div>
