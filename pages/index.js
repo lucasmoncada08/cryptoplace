@@ -113,7 +113,7 @@ const Home = () => {
               <h1 className="flex-1 font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold sm:mb-4">Hot Bids</h1>
               <div>SearchBar</div>
             </div>
-            <div className="mt-3 w-full flex flex-wrap justify-start md:justify-center">
+            <div className="mt-3 w-full flex flex-wrap justify-center">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
                 <NFTCard
                   key={`nft-${i}`}
