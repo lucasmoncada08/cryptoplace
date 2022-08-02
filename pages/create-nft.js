@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState, useMemo, useCallback, useContext } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 
 import images from '../assets';
+import { Button } from '../components'
 
 const CreateNFT = () => {
-  console.log();
+  const { theme } = useTheme();
 
-
+  const [fileUrl, setFileUrl] = useState(null);
 
   return (
-    <div className="flex flex-col items-center p-12 sm:p-4">
+    <div className="flex flex-col items-center p-12 sm:px-4">
       <div className="flex justify-start w-3/5 mt-4 mb-12">
         <h1 className="font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">Create new Item</h1>
       </div>
