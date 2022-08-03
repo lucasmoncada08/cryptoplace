@@ -65,8 +65,8 @@ const CreateNFT = () => {
           </div>
         </div>
         <Input inputType="input" fieldName="Name" inputText="NFT Name" handleClick={() => {}} />
-        <Input inputType="input" fieldName="Description" inputText="Description of your NFT" handleClick={() => {}} />
-        <Input inputType="input" fieldName="Price" inputText="Listing Price" handleClick={() => {}} />
+        <Input inputType="textarea" fieldName="Description" inputText="Description of your NFT" handleClick={() => {}} />
+        <Input inputType="number" fieldName="Price" inputText="Listing Price" handleClick={() => {}} />
       </div>
     </div>
   );
