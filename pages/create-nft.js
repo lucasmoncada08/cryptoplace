@@ -67,6 +67,13 @@ const CreateNFT = () => {
         <Input inputType="input" fieldName="Name" inputText="NFT Name" handleClick={() => {}} />
         <Input inputType="textarea" fieldName="Description" inputText="Description of your NFT" handleClick={() => {}} />
         <Input inputType="number" fieldName="Price" inputText="Listing Price" handleClick={() => {}} />
+        <div className="mt-7 w-full flex justify-end">
+          <Button
+            btnName="Create NFT"
+            classStyles="rounded-xl"
+            handleClick={() => {}}
+          />
+        </div>
       </div>
     </div>
   );
