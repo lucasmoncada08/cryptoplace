@@ -10,6 +10,9 @@ import { Button, Input } from '../components';
 const CreateNFT = () => {
   const { theme } = useTheme();
 
+  const [fileUrl, setFileUrl] = useState(null);
+  const [formInput, setFormInput] = useState({ price: '', name: '', description: '' });
+
   const onDrop = useCallback(() => {
     // upload image to ipfs (blockchain)
   }, []);
@@ -19,8 +22,6 @@ const CreateNFT = () => {
     accept: 'image/*',
     maxSize: 5000000,
   });
-
-  const [fileUrl, setFileUrl] = useState(null);
 
   const fileStyle = useMemo(() => (
     `dark:bg-nft-black-1 bg-white border dark:border-nft-gray-2 flex flex-col items-center p-5 rounded-sm border-dashed 
@@ -64,9 +65,24 @@ const CreateNFT = () => {
             </div>
           </div>
         </div>
-        <Input inputType="input" fieldName="Name" inputText="NFT Name" handleClick={() => {}} />
-        <Input inputType="textarea" fieldName="Description" inputText="Description of your NFT" handleClick={() => {}} />
-        <Input inputType="number" fieldName="Price" inputText="Listing Price" handleClick={() => {}} />
+        <Input
+          inputType="input"
+          fieldName="Name"
+          inputText="NFT Name"
+          handleClick={(e) => setFormInput({ ...formInput, name: e.target.value })}
+        />
+        <Input
+          inputType="textarea"
+          fieldName="Description"
+          inputText="Description of your NFT"
+          handleClick={(e) => setFormInput({ ...formInput, description: e.target.value })}
+        />
+        <Input
+          inputType="number"
+          fieldName="Price"
+          inputText="Listing Price"
+          handleClick={(e) => setFormInput({ ...formInput, number: e.target.value })}
+        />
         <div className="mt-7 w-full flex justify-end">
           <Button
             btnName="Create NFT"
